@@ -54,3 +54,4 @@ A file for the constants of the application has been created to the root of the 
 - bootstrap 
 - google maps 
 - angular-calendar
+- angular cdk drag and drop

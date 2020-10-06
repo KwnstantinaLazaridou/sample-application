@@ -4,64 +4,62 @@
 <hr>
 
 <div class="container">
-    <div class="table-wrapper">
-        <div class="table-title">
-            <div class="row">
-                <div class="col-sm-8">
-                    <h4>Details</h4>
-                </div>
-                <div class="col-sm-4">
-                    <button type="button" class="btn btn-info add-new" (click)="onAdd()"><i class="fa fa-plus"></i> Add
-                        New</button>
-                </div>
+    <div class="table-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h4>Details</h4>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-info add-new" (click)="onAdd()"><i class="fa fa-plus"></i> Add
+                    New</button>
             </div>
         </div>
-        <form [formGroup]="customerForm">
-            <table class="table table-striped table-sm table-bordered">
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody cdkDropList (cdkDropListDropped)="drop($event)">
-                    <tr *ngFor="let customer of customers" cdkDrag>
-                        <td class="col-md">{{customer.firstName}}</td>
-                        <td class="col-md">{{customer.lastName}}</td>
-                        <td class="col-md">{{customer.number}}</td>
-                        <td class="col-md">{{customer.email}}</td>
-                        <td class="text-center">
-                            <a class="delete" title="Delete" data-toggle="tooltip" (click)="onRemove(customer)"><i
-                                    class="fa fa-trash"></i></a>
-                        </td>
-                    </tr>
-                    <tr *ngIf="showNewRow">
-                        <td class="col-md">
-                            <input type="text" class="form-control" formControlName="firstName" placeholder="firstName"
-                                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
-                        </td>
-                        <td class="col-md">
-                            <input type="text" class="form-control" formControlName="lastName" placeholder="lastName"
-                                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
-                        </td>
-                        <td class="col-md">
-                            <input type="text" class="form-control" formControlName="number" placeholder="number"
-                                [ngClass]="{ 'is-invalid': submitted && f.number.errors }"></td>
-                        <td class="col-md"><input type="text" class="form-control" formControlName="email"
-                                placeholder="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                        </td>
-                        <td class="text-center">
-                            <button (click)="onSubmit()" class="btn btn-sm btn-success" title="Submit"
-                                data-toggle="tooltip"><i class="fa fa-check"></i></button>
-                            <button class="btn btn-sm btn-danger" title="Cancel" data-toggle="tooltip"
-                                style="margin-left: 5px;" (click)="onCancel()"><i class="fa fa-times"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
     </div>
+    <form [formGroup]="customerForm">
+        <table class="table table-striped table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th class="col-2">First Name</th>
+                    <th class="col-2">Last Name</th>
+                    <th class="col-2">Phone</th>
+                    <th class="col-3">Email</th>
+                    <th class="col-3">Actions</th>
+                </tr>
+            </thead>
+            <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+                <tr *ngFor="let customer of customers" cdkDrag>
+                    <td class="col-md">{{customer.firstName}}</td>
+                    <td class="col-md">{{customer.lastName}}</td>
+                    <td class="col-md">{{customer.number}}</td>
+                    <td class="col-md">{{customer.email}}</td>
+                    <td class="text-center">
+                        <a class="delete" title="Delete" data-toggle="tooltip" (click)="onRemove(customer)"><i
+                                class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+                <tr *ngIf="showNewRow">
+                    <td class="col-md">
+                        <input type="text" class="form-control" formControlName="firstName" placeholder="firstName"
+                            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                    </td>
+                    <td class="col-md">
+                        <input type="text" class="form-control" formControlName="lastName" placeholder="lastName"
+                            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                    </td>
+                    <td class="col-md">
+                        <input type="text" class="form-control" formControlName="number" placeholder="number"
+                            [ngClass]="{ 'is-invalid': submitted && f.number.errors }"></td>
+                    <td class="col-md"><input type="text" class="form-control" formControlName="email"
+                            placeholder="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                    </td>
+                    <td class="text-center">
+                        <button (click)="onSubmit()" class="btn btn-sm btn-success" title="Submit"
+                            data-toggle="tooltip"><i class="fa fa-check"></i></button>
+                        <button class="btn btn-sm btn-danger" title="Cancel" data-toggle="tooltip"
+                            style="margin-left: 5px;" (click)="onCancel()"><i class="fa fa-times"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
 </div>
