@@ -13,7 +13,7 @@ In order to pass through the login page use the following credentials
 # Implementation Details
 
 ## Project Structure
-The project has been divided into some basic folders in order to separate the componenents
+The project has been divided into some basic folders in order to separate the components
 
 - `auth`
 - `pages`
@@ -21,14 +21,14 @@ The project has been divided into some basic folders in order to separate the co
 
 ### Auth folder
 ---
-The auth folder contains all the logic regarding the authentication and authorization of the app. Even if the app has no back end server, I have created a more "real-life" application structure.
+The auth folder contains all the logic regarding the authentication and authorization of the app. Even if the app has no back end server, I have created a "real-life" application structure.
 
 #### Auth Service
 This is the service that is responsible to communicate with a backend server and validate the credentials.
 
 Methods included: 
-- `login`, a method to "send" the credentials to the server and create a local storage entry if succeeded.
-- `isLoggedIn`, a method read from the local storage and decide if the user is logged in
+- `login`, a method to send the credentials to the server and create a local storage entry if succeeded.
+- `isLoggedIn`, a method to read from the local storage and decide if the user is logged in
 - `logout`, a method to clear the storage and perfom the log out
 
 #### Guard
@@ -36,12 +36,12 @@ The application is enhanced with a guard to prevent the user from browsing unaut
 
 ### Pages folder
 ---
-In this folder I have created all the page-components where the user is navigated to. A `page.module.ts` have been generated and imported to the `app.module.ts`.
+In this folder I have created all the page-components where the user is navigated to. A `page.module.ts` have been generated and imported to the `app.module.ts` in order to group those components.
 
 The pages/componets are 
-- `dashboard`, a page with the main functionality of the app. This folder also have a `components` folder with all the specific components for this feature, specifically the `map`, the `calendar` and the `customer` widget
-- `login`, a page for the user to login to the application
-- `error404`, a page to redirect the user for the invalid route urls
+- `dashboard`, a page with the main functionality of the app. This folder also have a `components` folder with all the specific components for this feature, specifically the `map`, the `calendar` and the `customer` widget.
+- `login`, a page for the user to login to the application. The correct credentials are stored to the `app.constants.ts` file.
+- `error404`, a page to redirect the user when he/she is navigating to invalid routes.
 
 ### Shared folder
 ---
