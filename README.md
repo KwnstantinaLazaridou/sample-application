@@ -1,27 +1,56 @@
-# SampleApplication
-
+# Angular Version
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
-## Development server
+# Run this project
+Run `npm install`, then `ng serve` and finally navigate to `http://localhost:4200/`.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Login in to the application
+In order to pass through the login page use the following credentials
 
-## Code scaffolding
+- Email: `admin@site.com`
+- Password: `1234`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Implementation Details
 
-## Build
+## Project Structure
+The project has been divided into some basic folders in order to separate the componenents
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- `auth`
+- `pages`
+- `shared`
 
-## Running unit tests
+### Auth folder
+---
+The auth folder contains all the logic regarding the authentication and authorization of the app. Even if the app has no back end server, I have created a more "real-life" application structure.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Auth Service
+This is the service that is responsible to communicate with a backend server and validate the credentials.
 
-## Running end-to-end tests
+Methods included: 
+- `login`, a method to "send" the credentials to the server and create a local storage entry if succeeded.
+- `isLoggedIn`, a method read from the local storage and decide if the user is logged in
+- `logout`, a method to clear the storage and perfom the log out
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+#### Guard
+The application is enhanced with a guard to prevent the user from browsing unauthorized pages (eg the Dashboard). The guard is using the method `isLoggedIn` of the auth service.
 
-## Further help
+### Pages folder
+---
+In this folder I have created all the page-components where the user is navigated to. A `page.module.ts` have been generated and imported to the `app.module.ts`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The pages/componets are 
+- `dashboard`, a page with the main functionality of the app. This folder also have a `components` folder with all the specific components for this feature, specifically the `map`, the `calendar` and the `customer` widget
+- `login`, a page for the user to login to the application
+- `error404`, a page to redirect the user for the invalid route urls
+
+### Shared folder
+---
+In this folder I have implemented the shared and common services the application is using. 
+
+## Additional files
+A file for the constants of the application has been created to the root of the src with the name `app.constants.ts`. 
+
+## Plugins used
+- bootstrap 
+- google maps 
+- angular-calendar

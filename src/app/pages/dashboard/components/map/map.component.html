@@ -1,0 +1,8 @@
+<h3>
+  <span class="fa fa-map-o"></span> Map
+</h3>
+<hr>
+
+<agm-map [zoom]="13" [latitude]="userCoordinates.lat" [longitude]="userCoordinates.lng">
+  <agm-marker [latitude]="userCoordinates.lat" [longitude]="userCoordinates.lng"></agm-marker>
+</agm-map>
